@@ -1,0 +1,10 @@
+{% if messages %}
+    {% for message in messages %}
+    <p{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</p>
+    {% endfor %}
+{% endif %}
+
+<form action="{% url pay %}" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <p><button>Pay</button></p>
+</form>
